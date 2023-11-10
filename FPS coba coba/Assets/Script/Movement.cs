@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float walkSpeed = 4f;
+    public float sprintSpeed = 14f;
     public float maxVelocityChange = 10f;
 
     private Vector2 input;
