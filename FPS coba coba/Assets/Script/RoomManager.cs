@@ -5,9 +5,20 @@ using Photon.Pun;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+    public static RoomManager instance;
+
+
     public GameObject player;
     [Space]
     public Transform spawnPoint;
+
+    [Space]
+    public GameObject roomCam;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +57,15 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         Debug.Log("We're connected and in a room!");
 
+        roomCam.SetActive(false);
+
+        SpawnPlayer();
+    }
+
+    public void SpawnPlayer()
+    {
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
         _player.GetComponent<PlayerSetup>().IsLocalPLayer();
+        _player.GetComponent<Health>().isLocalPLayer = true;
     }
 }

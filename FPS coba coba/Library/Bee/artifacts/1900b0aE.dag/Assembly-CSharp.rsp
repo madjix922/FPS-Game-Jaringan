@@ -402,6 +402,7 @@
 "Assets/Script/Movement.cs"
 "Assets/Script/PlayerSetup.cs"
 "Assets/Script/RoomManager.cs"
+"Assets/Script/Sway.cs"
 "Assets/Script/Weapon.cs"
 -langversion:9.0
 
